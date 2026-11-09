@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Margföldun">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23244a9a'/%3E%3Ctext x='50' y='70' font-size='64' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3E%C3%97%3C/text%3E%3C/svg%3E">
-<title>Margföldunarpróf 2–5</title>
+<title>Margföldunarpróf 1–10</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap">
 <style>
 :root{
@@ -17,7 +17,7 @@
   padding-bottom:env(safe-area-inset-bottom,0px);
   --bg:#f3f6fd; --surface:#ffffff; --ink:#1b2a4e; --muted:#5d6b8c; --line:#d9e0f2;
   --navy:#244a9a; --good:#2e9e4f; --good-bg:#e3f6e8; --bad:#d6403a; --bad-bg:#fde7e5;
-  --c2:#e89a2e; --c3:#f0cf3a; --c4:#5cb04e; --c5:#4a97e0;
+  --c1:#d94b43; --c2:#e89a2e; --c3:#f0cf3a; --c4:#5cb04e; --c5:#4a97e0; --c6:#7a55c4; --c7:#3fb8c4; --c8:#2f6fd0; --c9:#d6407a; --c10:#1f9d84;
   --t2:#fff3e0; --t3:#fff9db; --t4:#e8f6e4; --t5:#e3f0fd;
   --shadow:0 6px 0 rgba(36,74,154,.14);
   color-scheme:light;
@@ -44,17 +44,24 @@ header.top{background:var(--navy);color:#fff;border-radius:22px;padding:18px 20p
 header.top h1{margin:0;font-size:clamp(28px,8vw,40px);font-weight:700;letter-spacing:.2px}
 header.top p{margin:4px 0 0;opacity:.9;font-size:17px}
 .stripe{display:flex;gap:6px;margin:14px 0 0;justify-content:center}
-.stripe i{width:44px;height:8px;border-radius:99px}
+.stripe i{width:26px;height:8px;border-radius:99px}
 .panel{background:var(--surface);border-radius:22px;padding:22px;margin-top:18px;box-shadow:var(--shadow);border:2px solid var(--line)}
 h2{margin:0 0 8px;font-size:26px}
 .muted{color:var(--muted)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
-.chip{flex:1 1 90px;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 8px;border-radius:16px;border:3px solid transparent;font:inherit;font-weight:600;font-size:22px;color:var(--ink);cursor:pointer;background:var(--t2)}
-.chip[data-t="2"]{background:var(--t2);border-color:var(--c2)}
-.chip[data-t="3"]{background:var(--t3);border-color:var(--c3)}
-.chip[data-t="4"]{background:var(--t4);border-color:var(--c4)}
-.chip[data-t="5"]{background:var(--t5);border-color:var(--c5)}
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0 4px}
+.chip{display:flex;align-items:center;justify-content:center;padding:12px 4px;border-radius:16px;border:3px solid var(--c);background:color-mix(in srgb,var(--c) 16%,var(--surface));font:inherit;font-weight:600;font-size:21px;color:var(--ink);cursor:pointer}
 .chip[aria-pressed="false"]{background:transparent;border-color:var(--line);color:var(--muted);text-decoration:line-through}
+.linkbtn{background:none;border:0;padding:6px 0;margin-top:8px;font:inherit;font-weight:600;font-size:16px;color:var(--navy);cursor:pointer;text-decoration:underline}
+[data-t="1"]{--c:var(--c1)}
+[data-t="2"]{--c:var(--c2)}
+[data-t="3"]{--c:var(--c3)}
+[data-t="4"]{--c:var(--c4)}
+[data-t="5"]{--c:var(--c5)}
+[data-t="6"]{--c:var(--c6)}
+[data-t="7"]{--c:var(--c7)}
+[data-t="8"]{--c:var(--c8)}
+[data-t="9"]{--c:var(--c9)}
+[data-t="10"]{--c:var(--c10)}
 .field{margin-top:18px}
 .field label{display:block;font-weight:600;margin-bottom:8px}
 .seg{display:flex;gap:10px}
@@ -70,11 +77,7 @@ button:focus-visible,input:focus-visible{outline:4px solid #ffb300;outline-offse
 .progress{display:flex;align-items:center;gap:12px;margin-top:18px;font-weight:600}
 .bar{flex:1;height:14px;border-radius:99px;background:var(--line);overflow:hidden}
 .bar b{display:block;height:100%;width:0;background:var(--good);border-radius:99px;transition:width .3s}
-.qcard{margin-top:14px;border-radius:26px;border:4px solid var(--c2);background:var(--t2);padding:26px 16px 22px;text-align:center;box-shadow:var(--shadow)}
-.qcard[data-t="2"]{border-color:var(--c2);background:var(--t2)}
-.qcard[data-t="3"]{border-color:var(--c3);background:var(--t3)}
-.qcard[data-t="4"]{border-color:var(--c4);background:var(--t4)}
-.qcard[data-t="5"]{border-color:var(--c5);background:var(--t5)}
+.qcard{margin-top:14px;border-radius:26px;border:4px solid var(--c);background:color-mix(in srgb,var(--c) 14%,var(--surface));padding:26px 16px 22px;text-align:center;box-shadow:var(--shadow)}
 .q{font-size:clamp(46px,16vw,76px);font-weight:700;letter-spacing:1px;white-space:nowrap}
 .answer{display:block;margin:14px auto 0;width:min(220px,70%);text-align:center;font:inherit;font-size:48px;font-weight:700;padding:6px 8px;border-radius:18px;border:4px solid var(--line);background:var(--surface);color:var(--ink)}
 .answer:disabled{opacity:1;-webkit-text-fill-color:var(--ink)}
@@ -95,7 +98,7 @@ button:focus-visible,input:focus-visible{outline:4px solid #ffb300;outline-offse
 .stat span{font-size:14px;color:var(--muted)}
 .rows{margin-top:6px}
 .row{display:flex;align-items:center;gap:12px;margin-top:12px}
-.row .lab{width:54px;font-weight:700;font-size:22px;text-align:center;border-radius:12px;padding:2px 0;border:3px solid}
+.row .lab{width:64px;font-weight:700;font-size:22px;text-align:center;border-radius:12px;padding:2px 0;border:3px solid}
 .row .track{flex:1;height:18px;border-radius:99px;background:var(--line);overflow:hidden}
 .row .track b{display:block;height:100%;border-radius:99px}
 .row .num{width:52px;text-align:right;font-weight:600}
@@ -112,10 +115,8 @@ button:focus-visible,input:focus-visible{outline:4px solid #ffb300;outline-offse
 <div class="wrap">
   <header class="top">
     <h1>Margföldunarpróf</h1>
-    <p>2×, 3×, 4× og 5× taflan</p>
-    <div class="stripe" aria-hidden="true">
-      <i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i><i style="background:var(--c5)"></i>
-    </div>
+    <p>Margföldunartaflan 1–10</p>
+    <div class="stripe" aria-hidden="true"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i><i style="background:var(--c5)"></i><i style="background:var(--c6)"></i><i style="background:var(--c7)"></i><i style="background:var(--c8)"></i><i style="background:var(--c9)"></i><i style="background:var(--c10)"></i></div>
   </header>
 
   <!-- START -->
@@ -123,11 +124,18 @@ button:focus-visible,input:focus-visible{outline:4px solid #ffb300;outline-offse
     <h2>Tilbúin í próf?</h2>
     <div class="muted">Veldu hvaða töflur eru með og hversu margar spurningar.</div>
     <div class="chips" id="chips">
+      <button class="chip" data-t="1" aria-pressed="true">1×</button>
       <button class="chip" data-t="2" aria-pressed="true">2×</button>
       <button class="chip" data-t="3" aria-pressed="true">3×</button>
       <button class="chip" data-t="4" aria-pressed="true">4×</button>
       <button class="chip" data-t="5" aria-pressed="true">5×</button>
+      <button class="chip" data-t="6" aria-pressed="true">6×</button>
+      <button class="chip" data-t="7" aria-pressed="true">7×</button>
+      <button class="chip" data-t="8" aria-pressed="true">8×</button>
+      <button class="chip" data-t="9" aria-pressed="true">9×</button>
+      <button class="chip" data-t="10" aria-pressed="true">10×</button>
     </div>
+    <button class="linkbtn" id="allBtn">Velja allar töflur</button>
     <div class="field">
       <label>Fjöldi spurninga</label>
       <div class="seg" id="count">
@@ -182,10 +190,10 @@ button:focus-visible,input:focus-visible{outline:4px solid #ffb300;outline-offse
 
 <script>
 (function(){
-  var COLORS={2:'var(--c2)',3:'var(--c3)',4:'var(--c4)',5:'var(--c5)'};
-  var TINTS={2:'var(--t2)',3:'var(--t3)',4:'var(--t4)',5:'var(--t5)'};
+  var COLORS={},TINTS={};
+  for(var n=1;n<=10;n++){COLORS[n]='var(--c'+n+')';TINTS[n]='color-mix(in srgb,var(--c'+n+') 16%,var(--surface))'}
   var $=function(id){return document.getElementById(id)};
-  var state={tables:[2,3,4,5],count:20,qs:[],i:0,correct:0,answers:[],t0:0,locked:false,name:''};
+  var state={tables:[1,2,3,4,5,6,7,8,9,10],count:20,qs:[],i:0,correct:0,answers:[],t0:0,locked:false,name:''};
 
   function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
   function show(id){['start','quiz','results'].forEach(function(s){$(s).classList.toggle('hide',s!==id)});window.scrollTo(0,0)}
@@ -198,6 +206,7 @@ button:focus-visible,input:focus-visible{outline:4px solid #ffb300;outline-offse
     if(on&&active===1)return;
     b.setAttribute('aria-pressed',on?'false':'true');
   });
+  $('allBtn').addEventListener('click',function(){[].forEach.call(document.querySelectorAll('.chip'),function(b){b.setAttribute('aria-pressed','true')})});
   $('count').addEventListener('click',function(e){
     var b=e.target.closest('button');if(!b)return;
     [].forEach.call($('count').children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
@@ -293,7 +302,7 @@ button:focus-visible,input:focus-visible{outline:4px solid #ffb300;outline-offse
 
     // per table
     var rows=$('rows');rows.innerHTML='';
-    state.tables.slice().sort().forEach(function(t){
+    state.tables.slice().sort(function(a,b){return a-b}).forEach(function(t){
       var mine=state.answers.filter(function(a){return a.t===t});
       if(!mine.length)return;
       var good=mine.filter(function(a){return a.ok}).length;
